@@ -48,31 +48,35 @@ class CustomDialog {
       context: context,
       barrierDismissible: cancelable,
       builder: (ctx) {
-        return AlertDialog(
-          title: Text(title ?? ""),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            spacing: 20.h,
-            children: [
-              Text(message ?? ""),
-              ElevatedButton(
-                onPressed: () {
-                  if (positiveOnClick != null) {
-                    positiveOnClick!();
-                  } else {
-                    Navigator.of(ctx).pop();
-                  }
-                },
-                child: Text(
-                  positiveText ?? AppLocalizations.of(ctx).ok,
-                  style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.white,
-                    fontWeight: FontWeight.bold,
+        return PopScope(
+          canPop: cancelable,
+          child: AlertDialog(
+            scrollable: true,
+            title: Text(title ?? ""),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: 20.h,
+              children: [
+                Text(message ?? ""),
+                ElevatedButton(
+                  onPressed: () {
+                    if (positiveOnClick != null) {
+                      positiveOnClick!();
+                    } else {
+                      Navigator.of(ctx).pop();
+                    }
+                  },
+                  child: Text(
+                    positiveText ?? AppLocalizations.of(ctx).ok,
+                    style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
+                      color: AppColors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
@@ -93,63 +97,65 @@ class CustomDialog {
       context: context,
       barrierDismissible: cancelable,
       builder: (ctx) {
-        return AlertDialog(
-          title: Text(title ?? ""),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            spacing: 20.h,
-            children: [
-              Text(message ?? ""),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                spacing: 16.w,
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.white,
-                        side: BorderSide(
-                          color: AppColors.black,
-                        )
-                      ),
-                      onPressed: () {
-                        if (negativeOnClick != null) {
-                          negativeOnClick!();
-                        } else {
-                          Navigator.of(ctx).pop();
-                        }
-                      },
-                      child: Text(
-                        negativeText ?? AppLocalizations.of(ctx).no,
-                        style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
-                          color: AppColors.white,
-                          fontWeight: FontWeight.bold,
+        return PopScope(
+          canPop: cancelable,
+          child: AlertDialog(
+            scrollable: true,
+            title: Text(title ?? ""),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: 20.h,
+              children: [
+                Text(message ?? ""),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  spacing: 16.w,
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.white,
+                          side: BorderSide(color: AppColors.black),
+                        ),
+                        onPressed: () {
+                          if (negativeOnClick != null) {
+                            negativeOnClick!();
+                          } else {
+                            Navigator.of(ctx).pop();
+                          }
+                        },
+                        child: Text(
+                          negativeText ?? AppLocalizations.of(ctx).no,
+                          style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
+                            color: AppColors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        if (positiveOnClick != null) {
-                          positiveOnClick!();
-                        } else {
-                          Navigator.of(ctx).pop();
-                        }
-                      },
-                      child: Text(
-                        positiveText ?? AppLocalizations.of(ctx).yes,
-                        style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
-                          color: AppColors.white,
-                          fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (positiveOnClick != null) {
+                            positiveOnClick!();
+                          } else {
+                            Navigator.of(ctx).pop();
+                          }
+                        },
+                        child: Text(
+                          positiveText ?? AppLocalizations.of(ctx).yes,
+                          style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
+                            color: AppColors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         );
       },

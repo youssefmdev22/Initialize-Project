@@ -1,4 +1,4 @@
-import 'package:elevate_tracking_app/core/router/route_names.dart';
+import 'package:initialize_project/core/router/route_names.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppRouter {

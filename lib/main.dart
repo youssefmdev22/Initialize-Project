@@ -1,17 +1,17 @@
-import 'package:elevate_tracking_app/core/constants/app_theme.dart';
-import 'package:elevate_tracking_app/core/di/di.dart';
-import 'package:elevate_tracking_app/core/router/app_router.dart';
-import 'package:elevate_tracking_app/core/router/route_names.dart';
-import 'package:elevate_tracking_app/generated/l10n.dart';
-import 'package:elevate_tracking_app/my_bloc_observer.dart';
+import 'package:initialize_project/core/constants/app_theme.dart';
+import 'package:initialize_project/core/di/di.dart';
+import 'package:initialize_project/core/router/app_router.dart';
+import 'package:initialize_project/core/router/route_names.dart';
+import 'package:initialize_project/generated/l10n.dart';
+import 'package:initialize_project/my_bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies();
+  await configureDependencies();
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          title: AppLocalizations.of(context).appName,
+          title: AppLocalizations().appName,
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           onGenerateRoute: AppRouter.onGenerateRoute,

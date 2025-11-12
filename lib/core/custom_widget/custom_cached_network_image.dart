@@ -7,6 +7,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
   final double? width;
   final BoxFit? fit;
   final Color? color;
+  final BorderRadiusGeometry? borderRadius;
 
   const CustomCachedNetworkImage({
     super.key,
@@ -15,18 +16,24 @@ class CustomCachedNetworkImage extends StatelessWidget {
     this.width,
     this.fit,
     this.color,
+    this.borderRadius,
   });
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      height: height,
-      width: width,
-      fit: fit,
-      imageUrl: imageUrl,
-      color: color,
-      placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-      errorWidget: (context, url, error) => const Icon(Icons.error),
+    return ClipRRect(
+      borderRadius: borderRadius ?? BorderRadius.zero,
+      child: CachedNetworkImage(
+        height: height,
+        width: width,
+        fit: fit,
+        imageUrl: imageUrl,
+        color: color,
+        placeholder: (context, url) =>
+            const Center(child: CircularProgressIndicator()),
+        errorWidget: (context, url, error) =>
+            const Center(child: Icon(Icons.error)),
+      ),
     );
   }
 }

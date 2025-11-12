@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:elevate_tracking_app/core/api_result/dio_error_handler.dart';
+import 'package:initialize_project/core/api_result/dio_error_handler.dart';
 
 sealed class ApiResult<T> {}
 

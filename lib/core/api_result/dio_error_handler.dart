@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:elevate_tracking_app/generated/l10n.dart';
+import 'package:initialize_project/generated/l10n.dart';
 
 String handleDioError(DioException error) {
   switch (error.type) {
@@ -35,11 +35,9 @@ String _extractErrorMessageFromResponse(Response? response) {
   try {
     final data = response.data;
     if (data is Map) {
-      // Handles common formats
       if (data.containsKey('message')) return data['message'];
       if (data.containsKey('error')) return data['error'];
       if (data.containsKey('errors')) {
-        // Laravel-style validation errors
         final errors = data['errors'];
         if (errors is Map && errors.isNotEmpty) {
           final firstError = errors.values.first;
@@ -51,7 +49,7 @@ String _extractErrorMessageFromResponse(Response? response) {
     }
 
     if (data is String && data.isNotEmpty) {
-      return data; // Plain text error response
+      return data;
     }
 
     return "${AppLocalizations().badResponse} [${response.statusCode}].";

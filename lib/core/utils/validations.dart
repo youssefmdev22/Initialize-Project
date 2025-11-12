@@ -1,6 +1,6 @@
 
 
-import 'package:elevate_tracking_app/generated/l10n.dart';
+import 'package:initialize_project/generated/l10n.dart';
 
 class Validations {
   Validations._();

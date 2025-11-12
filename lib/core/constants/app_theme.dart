@@ -1,5 +1,5 @@
-import 'package:elevate_tracking_app/core/constants/app_colors.dart';
-import 'package:elevate_tracking_app/core/constants/const_keys.dart';
+import 'package:initialize_project/core/constants/app_colors.dart';
+import 'package:initialize_project/core/constants/const_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,7 +8,7 @@ abstract class AppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: AppColors.white,
-    fontFamily: "Inter",
+    fontFamily: ConstKeys.interFont,
     colorScheme: ColorScheme(
       brightness: Brightness.light,
       primary: AppColors.mainColor,
