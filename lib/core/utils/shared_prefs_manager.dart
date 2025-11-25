@@ -7,22 +7,22 @@ class SharedPrefsManager {
 
   SharedPrefsManager(this._prefs);
 
-  String? getString(String key) => _prefs.getString(key);
+  String? getString({required String key}) => _prefs.getString(key);
 
-  Future<bool> setString(String key, String value) async =>
+  Future<bool> setString({required String key, required String value}) async =>
       await _prefs.setString(key, value);
 
-  int? getInt(String key) => _prefs.getInt(key);
+  int? getInt({required String key}) => _prefs.getInt(key);
 
-  Future<bool> setInt(String key, int value) async =>
+  Future<bool> setInt({required String key, required int value}) async =>
       await _prefs.setInt(key, value);
 
-  bool getBool(String key) => _prefs.getBool(key) ?? false;
+  bool getBool({required String key}) => _prefs.getBool(key) ?? false;
 
-  Future<bool> setBool(String key, bool value) async =>
+  Future<bool> setBool({required String key, required bool value}) async =>
       await _prefs.setBool(key, value);
 
-  Future<bool> remove(String key) async => await _prefs.remove(key);
+  Future<bool> remove({required String key}) async => await _prefs.remove(key);
 
   Future<bool> clear() async => await _prefs.clear();
 }
