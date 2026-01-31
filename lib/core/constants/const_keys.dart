@@ -10,4 +10,8 @@ abstract final class ConstKeys {
   static const String outfitFont = "Outfit";
   static const String interFont = "Inter";
   static const String appDB = "app_db";
+  static const String channelId = 'high_importance_channel';
+  static const String channelName = 'High Importance Notifications';
+  static const String channelDesc =
+      'This channel is used for important notifications.';
 }

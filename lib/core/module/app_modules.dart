@@ -10,7 +10,7 @@ import '../../local/models/local_db_model.dart';
 import '../../objectbox.g.dart';
 import '../constants/const_keys.dart';
 import '../constants/end_points.dart';
-import '../utils/secure_storage_manager.dart';
+import '../manager/secure_storage_manager.dart';
 
 @module
 abstract class AppModules {
