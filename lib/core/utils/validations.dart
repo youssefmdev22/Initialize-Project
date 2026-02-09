@@ -2,8 +2,7 @@
 
 import 'package:initialize_project/generated/l10n.dart';
 
-class Validations {
-  Validations._();
+abstract class Validations {
 
   static String? validateEmail(String? val) {
     final RegExp emailRegex = RegExp(
